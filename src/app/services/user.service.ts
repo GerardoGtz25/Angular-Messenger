@@ -11,6 +11,7 @@ export class UserService {
   constructor() {
     let usuario1: User = {
       nickname: 'Eduardo',
+      subnick: 'El borrachote',
       age: 24,
       email: 'ed@aoe.aoe',
       friend: true,
