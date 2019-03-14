@@ -6,7 +6,7 @@ import { CONFIG_FIREBASE } from './../../env'
 export const environment = {
   production: false,
   firebase: { CONFIG_FIREBASE }
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
