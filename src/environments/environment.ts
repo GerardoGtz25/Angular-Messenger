@@ -5,7 +5,7 @@ import { CONFIG_FIREBASE } from './../../env'
 
 export const environment = {
   production: false,
-  firebase: { CONFIG_FIREBASE }
+  firebase: CONFIG_FIREBASE
 }
 
 /*
