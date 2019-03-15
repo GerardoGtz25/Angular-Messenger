@@ -13,6 +13,8 @@
             <span>Online</span>
             <br>
             <span>Escribe un mensaje personal</span>
+            <br>
+            <a (click)="logout()">logout</a> 
           </div>
         </div>
       </div>
@@ -28,11 +30,11 @@
       </div>
     </div>
     <hr>
-    <b>Amigos ({{friends.length}})</b>
+    <b *ngIf="friends">Amigos ({{friends.length}})</b>
     <div *ngFor="let user of friends | search: query; let i = index" class="disblo marbo5">
       <span routerLink="/conversation/{{user.uid}}" >
         <img src="assets/img/logo_live_online.png" class="icon">
-        <b> {{user.nickname}} - {{user.subnick || 'No subnick'}} </b>
+        <b> {{user.nickName}} - {{user.subnick || 'No subnick'}} </b>
         <small> {{user.email}} </small>
       </span>
     </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './../interfaces/user'
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/user.service'
+import { AuthenticationService } from './../services/authentication.service' 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,22 @@ export class HomeComponent implements OnInit {
   friends: User[]
   query: string
    
-  constructor(private userService: UserService) { 
-    this.friends = this.userService.getFriends()
+  constructor(private userService: UserService, private authentificationService: AuthenticationService, private router: Router) { 
+    this.userService.getUsers().valueChanges().subscribe((data: User[]) => {
+      this.friends = data;
+    })
   }
 
   ngOnInit() {
     
+  }
+
+  logout() {
+    this.authentificationService.logOut().then(() => {
+      this.router.navigate(['login'])
+    }).catch((error) => {
+      console.log(error)
+    })
   }
 
 }
