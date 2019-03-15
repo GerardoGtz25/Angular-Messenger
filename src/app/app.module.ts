@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TestComponent } from './test/test.component';
 import { SearchPipe } from './pipes/search';
 import { environment } from 'src/environments/environment';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule, 
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    ImageCropperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

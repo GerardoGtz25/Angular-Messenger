@@ -1,16 +1,16 @@
 <div id="homeContainer">
   <div class="whiteBorderGlassBox">
     <div class="homeHeadContainer">
-      <div class="row">
+      <div class="row" *ngIf="user">
         <div class="col-md-auto">
           <div class="avatarFrameOnLine">
-            <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
+            <img [src]="croppedImage  || user.avatar || 'assets/img/generic_avatar.png'" id="homeAvatarPicture">
           </div>
         </div>
         <div class="col">
-          <b>Gerardo Gutierrez</b>
+          <b>{{user.name}}</b>
           <div>
-            <span>Online</span>
+            <span>{{user.status}}</span>
             <br>
             <span>Escribe un mensaje personal</span>
             <br>
@@ -34,7 +34,7 @@
     <div *ngFor="let user of friends | search: query; let i = index" class="disblo marbo5">
       <span routerLink="/conversation/{{user.uid}}" >
         <img src="assets/img/logo_live_online.png" class="icon">
-        <b> {{user.nickName}} - {{user.subnick || 'No subnick'}} </b>
+        <b> {{user.name}} - {{user.nickName || 'No subnick'}} </b>
         <small> {{user.email}} </small>
       </span>
     </div>

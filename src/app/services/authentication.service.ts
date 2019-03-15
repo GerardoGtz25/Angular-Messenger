@@ -9,18 +9,18 @@ export class AuthenticationService {
   constructor(private angularFireAuth: AngularFireAuth) { }
 
   loginWithEmail(email: string, password: string){
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
   }
 
   registerWithEmail(email: string, password: string){
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
   }
 
   getStatus() {
-    return this.angularFireAuth.authState;
+    return this.angularFireAuth.authState
   }
 
   logOut() {
-    return this.angularFireAuth.auth.signOut();
+    return this.angularFireAuth.auth.signOut()
   }
 }

@@ -34,8 +34,14 @@
     text-align: center !important;
   }
 
-  .marto15{
+  .marto15 {
     margin-top: 15px;
+  }
+
+  .pointer {
+    cursor: pointer !important;
+    color: #5DADE2;
+    font-weight: bold;
   }
 
   .marbo15{

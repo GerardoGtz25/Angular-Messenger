@@ -14,10 +14,20 @@ export class HomeComponent implements OnInit {
 
   friends: User[]
   query: string
-   
+  user: User
+  
   constructor(private userService: UserService, private authentificationService: AuthenticationService, private router: Router) { 
     this.userService.getUsers().valueChanges().subscribe((data: User[]) => {
       this.friends = data;
+    })
+    this.authentificationService.getStatus().subscribe((status) => {
+      this.userService.getUserById(status.uid).valueChanges().subscribe((data: User) => {
+        this.user = data
+      }, (error) => {
+        console.log(error)
+      })
+    }, (error) => {
+      console.log(error)
     })
   }
 

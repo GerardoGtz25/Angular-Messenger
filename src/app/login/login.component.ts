@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { LocalStorage } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,11 @@ export class LoginComponent implements OnInit {
   operation: string
   email: string = null
   password: string = null
+  name: string = null
   nickName: string = null
 
   constructor(private authenticationService: AuthenticationService, private userService: UserService, 
-    private router: Router) {
+    private router: Router, protected localStorage: LocalStorage) {
     this.operation = 'login'
   }
 
@@ -38,7 +40,8 @@ export class LoginComponent implements OnInit {
       const user = {
         uid: data.user.uid,
         email: this.email,
-        nickName: this.nickName 
+        nickName: this.nickName,
+        name: this.name
       }
       
       this.userService.createUser(user).then((response) => {
@@ -47,12 +50,10 @@ export class LoginComponent implements OnInit {
         alert('Ocurrió un error')
         console.log(error)
       })
-      
     }).catch((error) => {
       alert('Ocurrio un error')
       console.log(error)
-    })
+    }) 
   }
-
 
 }
