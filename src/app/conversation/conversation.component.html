@@ -4,20 +4,20 @@
         <div id="conversationSidebar">
           <div class="vh30">
             <div class="avatarFrameonline">
-              <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
+              <img [src]="friend.avatar || 'assets/img/generic_avatar.png'" class="img-fluid avatarFrameOnLine">
             </div>
           </div>
           <div class="vh30"></div>
           <div class="vh25">
             <div class="avatarFrameonline">
-              <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
+              <img [src]="user.avatar || 'assets/img/generic_avatar.png'" class="img-fluid avatarFrameOnLine">
             </div>
           </div>
         </div>
       </div>
       <div class="col-sm-9">
         <br />
-        <span class="friendName">Amigo 1</span> (online)
+        <span class="friendName">{{friend.name}}</span> ({{friend.status}})
         <hr />
         <div class="vh55 overscroll pabo10" id="messageArea">
           <div class="messageGroup" *ngFor="let m of conversation">
